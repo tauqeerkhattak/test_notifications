@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:test_push_notification/services/local_notification_service.dart';
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () async {
+              await NotificationService.show(
+                title: 'Hellp',
+                body: 'World',
+              );
+            },
+            child: const Text(
+              'SHOW NOTIFICATION',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
