@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_push_notification/services/local_notification_service.dart';
+import 'package:test_push_notification/services/background_service.dart';
+
+import '../main.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,10 +20,10 @@ class _HomeState extends State<Home> {
         children: [
           ElevatedButton(
             onPressed: () async {
-              await NotificationService.show(
-                title: 'Hellp',
-                body: 'World',
+              await BackgroundService.configure(
+                onStart: onStart,
               );
+              await BackgroundService.start();
             },
             child: const Text(
               'SHOW NOTIFICATION',
