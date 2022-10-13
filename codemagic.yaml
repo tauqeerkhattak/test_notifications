@@ -10,5 +10,3 @@ workflows:
     scripts:
       - name: Build for Android
         script: flutter build apk
-      - name: Build for iOS
-        script: flutter build ios
