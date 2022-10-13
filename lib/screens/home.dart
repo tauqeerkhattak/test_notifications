@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
               await BackgroundService.start();
             },
             child: const Text(
-              'SHOW NOTIFICATION',
+              'DISPLAY NOTIFICATION',
             ),
           ),
         ],
