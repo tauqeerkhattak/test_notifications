@@ -1,0 +1,14 @@
+workflows:
+  my-workflow:
+    instance_type: mac_mini_m1
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+    triggering:
+      events:
+        - push
+    scripts:
+      - name: Build for Android
+        script: flutter build apk
+      - name: Build for iOS
+        script: flutter build ios
