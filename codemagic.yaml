@@ -10,3 +10,10 @@ workflows:
     scripts:
       - name: Build for Android
         script: flutter build apk
+    publishing:
+      email:
+        recipients:
+          - tauqeereusopht@gmail.com
+        notify:
+          success: true
+          failure: false
