@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_push_notification/services/background_service.dart';
-
-import '../main.dart';
+import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  static const platform = MethodChannel('our_channel');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +19,13 @@ class _HomeState extends State<Home> {
         children: [
           ElevatedButton(
             onPressed: () async {
-              await BackgroundService.configure(
-                onStart: onStart,
+              platform.invokeMethod(
+                'showNotification',
+                {
+                  'title': 'Hello World!',
+                  'body': 'I am into android now!',
+                },
               );
-              await BackgroundService.start();
             },
             child: const Text(
               'DISPLAY NOTY',
